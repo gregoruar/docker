@@ -6,7 +6,7 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN mkdir /tools && \ 
-    git clone --recursive https://github.com/nh13/DWGSIM /tools && \
+    git clone --recursive https://github.com/nh13/DWGSIM /tools/DWGSIM && \
     cd /tools/DWGSIM && \
     git submodule init && \
     git submodule update && \
