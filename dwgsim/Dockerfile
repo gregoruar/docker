@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
 RUN apt update && \ 
-    apt install -y git make gcc libz-dev ncurses-devel && \
+    apt install -y git make gcc libz-dev libncurses-dev && \
     apt-get clean && \ 
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
