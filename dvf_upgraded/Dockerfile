@@ -12,5 +12,5 @@ RUN conda config --add channels conda-forge && \
 RUN conda install python=3.6 numpy theano keras scikit-learn Biopython mkl-service fire && conda clean -a
 RUN git clone https://github.com/jessieren/$TOOLNAME
 RUN git clone https://github.com/gregoruar/docker_recipes.git
-RUN chmod +x /$TOOLNAME/dvf.py /docker_recipes/dvf/*.py
-ENV PATH /$TOOLNAME:/docker_recipes/dvf:$PATH 
+RUN chmod +x /$TOOLNAME/dvf.py /docker_recipes/dvf_upgraded/*.py
+ENV PATH /$TOOLNAME:/docker_recipes/dvf_upgraded:$PATH 
