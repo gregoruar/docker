@@ -6,13 +6,14 @@ import fire
 
 
 def vir_prep(
+        virus_path,
         random_seed,
         saving_path,
+        plant,
 ):
     random.seed(a=random_seed)
     family = Path(saving_path).name
-    seqs_path = Path(
-        f"/mnt/cbib/inextvir/workspace/gregoruar/deepvirfinder/dvf_train/vir_db/families/plant-vir_NO-{family}_2020-01-04.fasta")
+    seqs_path = Path(virus_path)
     seqs = list(SeqIO.parse(seqs_path, "fasta"))
     random.shuffle(seqs)
 
@@ -26,8 +27,8 @@ def vir_prep(
             val.append(seqs[i])
     print(len(tr))
     print(len(val))
-    SeqIO.write(tr, Path(saving_path, f"train/vir_tr_rs{random_seed}.fasta"), "fasta")
-    SeqIO.write(val, Path(saving_path, f"val/vir_val_rs{random_seed}.fasta"), "fasta")
+    SeqIO.write(tr, Path(saving_path, f"train/vir_tr_{plant}_rs{random_seed}.fasta"), "fasta")
+    SeqIO.write(val, Path(saving_path, f"val/vir_val_{plant}_rs{random_seed}.fasta"), "fasta")
 
 
 if __name__ == '__main__':

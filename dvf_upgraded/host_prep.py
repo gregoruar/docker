@@ -11,6 +11,7 @@ def host_prep(
         random_seed,
         fragment_length,
         saving_path,
+        plant,
         plant_path,
         bact_path,
 ):
@@ -72,7 +73,7 @@ def host_prep(
     random.shuffle(tr)
     print(len(tr))
     print(tr[0])
-    SeqIO.write(tr, Path(saving_path, f"train/host_tr_rs{random_seed}.fasta"), "fasta")
+    SeqIO.write(tr, Path(saving_path, f"train/host_tr_{plant}_rs{random_seed}.fasta"), "fasta")
 
     val = []
     for seq_name in list(seq_dict.keys()):
@@ -98,7 +99,7 @@ def host_prep(
     print(len(val))
     print(val[0])
 
-    SeqIO.write(val, Path(saving_path, f"val/host_val_rs{random_seed}.fasta"), "fasta")
+    SeqIO.write(val, Path(saving_path, f"val/host_val_{plant}_rs{random_seed}.fasta"), "fasta")
 
 
 if __name__ == '__main__':
