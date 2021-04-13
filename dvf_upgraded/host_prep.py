@@ -22,8 +22,8 @@ def host_prep(
                      file.endswith("fna")}
 
     # taking host val and train size from virus seq size.
-    vir_train_size = Path(saving_path, f'train/vir_tr_rs{random_seed}.fasta').stat().st_size
-    vir_val_size = Path(saving_path, f'val/vir_val_rs{random_seed}.fasta').stat().st_size
+    vir_train_size = Path(saving_path, f'train/vir_tr_{plant}_rs{random_seed}.fasta').stat().st_size
+    vir_val_size = Path(saving_path, f'val/vir_val_{plant}_rs{random_seed}.fasta').stat().st_size
     # fragment_length = 1000
     host_train_count = int(vir_train_size / fragment_length)
     host_val_count = int(vir_val_size / fragment_length)

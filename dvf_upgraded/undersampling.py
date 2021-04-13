@@ -15,11 +15,11 @@ def undersampling(
         path_old = Path(saving_path, f"{ds}/encode")
         path = Path(saving_path, f"{ds}/encode_{plant}_rs{random_seed}")
         path.mkdir(exist_ok=True)
-        if ds == "train":
-            ds = "tr"
-        file_list = path_old.glob(f"*_rs{random_seed}*")
+        file_list = path_old.glob(f"*{plant}_rs{random_seed}*")
         for p_ in file_list:
             p_.replace(path / p_.name)
+        if ds == "train":
+            ds = "tr"
         if not list(path.glob(f"host#host_{ds}_{plant}_rs{random_seed}#1k_num1_seq*_old.npy")):
             file_list = path.glob(f"host#host_{ds}_{plant}_rs{random_seed}#1k_num1_seq*")
             for p_ in file_list:
@@ -32,19 +32,6 @@ def undersampling(
         host_bw_n, host_fw_n = shuffle(host_bw, host_fw, random_state=random_seed, n_samples=n_seq)
         np.save(Path(path, f"host#host_{ds}_{plant}_rs{random_seed}#1k_num1_seq{n_seq}_codebw.npy"), host_bw_n)
         np.save(Path(path, f"host#host_{ds}_{plant}_rs{random_seed}#1k_num1_seq{n_seq}_codefw.npy"), host_fw_n)
-    # families = [
-    #     "Caulimoviridae",
-    #     "Closteroviridae",
-    #     "Phenuiviridae",
-    #     "Unclassified",
-    # ]
-    # path_encode = Path(saving_path, "encode")
-    # path_encode.rename(path_encode.parent / f"encode_rs{random_seed}")
-    # renaming files
-    # for f in families:
-    # # for fam in families:
-    # for ds in ["train", "val"]:
-    #     path = Path(saving_path, f"{ds}/encode_rs{random_seed}")
 
 
 if __name__ == '__main__':
