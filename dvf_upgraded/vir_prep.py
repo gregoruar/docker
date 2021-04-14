@@ -29,7 +29,7 @@ def vir_prep(
     print(len(val))
     SeqIO.write(tr, Path(saving_path, f"train/vir_tr_{plant}_rs{random_seed}.fasta"), "fasta")
     SeqIO.write(val, Path(saving_path, f"val/vir_val_{plant}_rs{random_seed}.fasta"), "fasta")
-
+    print("finished vir preparation")
 
 if __name__ == '__main__':
     fire.Fire(vir_prep)

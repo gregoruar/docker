@@ -48,7 +48,6 @@ def host_prep(
 
     # merging two host dictionaries
     seq_dict = {**plant_seq_dict, **bact_seq_dict}
-    print(len(seq_dict), len(bact_seq_dict), len(plant_seq_dict))
 
     tr = []
     for seq_name in list(seq_dict.keys()):
@@ -72,7 +71,6 @@ def host_prep(
 
     random.shuffle(tr)
     print(len(tr))
-    print(tr[0])
     SeqIO.write(tr, Path(saving_path, f"train/host_tr_{plant}_rs{random_seed}.fasta"), "fasta")
 
     val = []
@@ -97,8 +95,7 @@ def host_prep(
 
     random.shuffle(val)
     print(len(val))
-    print(val[0])
-
+    print("finished host preparation")
     SeqIO.write(val, Path(saving_path, f"val/host_val_{plant}_rs{random_seed}.fasta"), "fasta")
 
 
