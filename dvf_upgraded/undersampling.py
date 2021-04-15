@@ -27,7 +27,6 @@ def undersampling(random_seed, saving_path, plant,):
         host_bw_n, host_fw_n = shuffle(host_bw, host_fw, random_state=random_seed, n_samples=n_seq)
         np.save(Path(path, f"host#host_{ds}_{plant}_rs{random_seed}#1k_num1_seq{n_seq}_codebw.npy"), host_bw_n)
         np.save(Path(path, f"host#host_{ds}_{plant}_rs{random_seed}#1k_num1_seq{n_seq}_codefw.npy"), host_fw_n)
-    print("finished undersampling")
 
 
 if __name__ == '__main__':
