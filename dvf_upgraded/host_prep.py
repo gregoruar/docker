@@ -95,9 +95,8 @@ def host_prep(
 
     random.shuffle(val)
     print(len(val))
-    print("finished host preparation")
     SeqIO.write(val, Path(saving_path, f"val/host_val_{plant}_rs{random_seed}.fasta"), "fasta")
-
+    print("host preparation finished")
 
 if __name__ == '__main__':
     fire.Fire(host_prep)
