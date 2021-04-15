@@ -5,13 +5,8 @@ import re
 import fire
 
 
-def undersampling(
-        random_seed,
-        saving_path,
-        plant,
-):
+def undersampling(random_seed, saving_path, plant,):
     for ds in ["train", "val"]:
-
         path_old = Path(saving_path, f"{ds}/encode")
         path = Path(saving_path, f"{ds}/encode_{plant}_rs{random_seed}")
         path.mkdir(exist_ok=True)
@@ -34,6 +29,6 @@ def undersampling(
         np.save(Path(path, f"host#host_{ds}_{plant}_rs{random_seed}#1k_num1_seq{n_seq}_codefw.npy"), host_fw_n)
     print("finished undersampling")
 
+
 if __name__ == '__main__':
     fire.Fire(undersampling)
-

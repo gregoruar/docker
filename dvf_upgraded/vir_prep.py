@@ -12,7 +12,6 @@ def vir_prep(
         plant,
 ):
     random.seed(a=random_seed)
-    family = Path(saving_path).name
     seqs_path = Path(virus_path)
     seqs = list(SeqIO.parse(seqs_path, "fasta"))
     random.shuffle(seqs)
@@ -31,6 +30,6 @@ def vir_prep(
     SeqIO.write(val, Path(saving_path, f"val/vir_val_{plant}_rs{random_seed}.fasta"), "fasta")
     print("finished vir preparation")
 
+
 if __name__ == '__main__':
     fire.Fire(vir_prep)
-
